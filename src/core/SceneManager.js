@@ -16,7 +16,7 @@ export function initScene() {
     
     // Create scene
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x505050);
+    scene.background = new THREE.Color(0x000000);
     
     // Create camera
     camera = new THREE.PerspectiveCamera(
