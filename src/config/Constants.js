@@ -78,7 +78,7 @@ export const UI_CONFIG = {
 // ========================================
 export const MODEL_PATHS = {
     fruits: (index) => `/static/fruit_${index}.glb`,
-    container: '/static/suika-container.glb',
+    container: '/static/container.glb',
     cloud: '/static/cloud.glb',
     font: '/static/fonts/nunito-extrabold.json',
     panelTexture: '/static/UI_PANEL-REF.png',

@@ -98,7 +98,7 @@ export function loadContainerModel() {
             },
             undefined,
             (error) => {
-                console.error('Error loading suika-container.glb:', error);
+                console.error('Error loading container.glb:', error);
                 reject(error);
             }
         );
