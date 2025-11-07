@@ -1,0 +1,94 @@
+.webgl
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Show canvas when in XR */
+body.xr-presenting .webgl {
+    visibility: visible;
+    opacity: 1;
+}
+
+html, 
+body 
+{
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #505050;
+}
+
+/* Add a click instruction overlay */
+body::before {
+    content: "Start WebXR";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #A377FF;
+    color: #fff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 1000;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Hide instruction when in XR */
+body.xr-presenting::before {
+    opacity: 0;
+}
+
+/* Hide instruction when showing error */
+body.webxr-error::before {
+    display: none;
+}
+
+/* Force hide the default XRButton */
+#VRButton,
+button[id*="XR"],
+button[id*="VR"],
+button[class*="xr"],
+button[class*="vr"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* WebXR error message styling */
+.webxr-error-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ff4444;
+    color: #fff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    z-index: 1001;
+    max-width: 400px;
+    line-height: 1.5;
+}
+
+.webxr-error-message a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.webxr-error-message a:hover {
+    color: #ffeb3b;
+}
