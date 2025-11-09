@@ -1,4 +1,4 @@
-# webxr-suika
+# webxr-ar-suika
 
 ![Preview](preview.gif)
 
