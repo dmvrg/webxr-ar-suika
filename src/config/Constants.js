@@ -81,8 +81,8 @@ export const MODEL_PATHS = {
     container: '/static/container.glb',
     cloud: '/static/cloud.glb',
     font: '/static/fonts/nunito-extrabold.json',
-    panelTexture: '/static/UI_PANEL-REF.png',
-    buttonTexture: '/static/UI_BUTTON.png'
+    panelTexture: '/static/ui_panel.png',
+    buttonTexture: '/static/ui_button.png'
 };
 
 // ========================================
