@@ -34,7 +34,7 @@ import { loadShaderMaterials, getFresnelMaterial, getFresnelMaterialInfoBubbles,
 import { updateGSAP, animateStaggerScaleDown, animateScaleUp, getGSAP } from './effects/AnimationManager.js';
 
 // Utils
-import { worldToContainer } from './utils/CoordinateUtils.js';
+import { worldToContainer, disableFrustumCulling } from './utils/CoordinateUtils.js';
 
 // ========================================
 // GLOBAL REFERENCES
@@ -125,7 +125,12 @@ async function init() {
     // 12. Setup window resize
     window.addEventListener('resize', handleResize);
     
-    // 13. Start animation loop
+    // 13. Disable frustum culling on all static scene objects so nothing
+    //     disappears during video recording when the capture camera differs
+    //     from the XR view.
+    disableFrustumCulling(scene);
+    
+    // 14. Start animation loop
     renderer.setAnimationLoop(animate);
     
     console.log('✅ Game initialized successfully!');

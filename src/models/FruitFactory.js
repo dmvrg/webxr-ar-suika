@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { fruitModels, fruitModelSizes, areModelsLoaded } from './ModelLoader.js';
 import { FRUITS } from '../config/Fruits.js';
 import { PERFORMANCE } from '../config/Constants.js';
+import { disableFrustumCulling } from '../utils/CoordinateUtils.js';
 
 /**
  * Create a fruit mesh (GLB model or fallback sphere)
@@ -27,11 +28,14 @@ export function createFruitMesh(fruitType, radius, scale = 1.0) {
         const scaleFactor = (radius / originalRadius) * scale;
         mesh.scale.set(scaleFactor, scaleFactor, scaleFactor);
         
+        disableFrustumCulling(mesh);
         return mesh;
     }
     
     // Fallback: Create sphere with fruit color
-    return createFallbackSphere(radius * scale, fruitConfig.color);
+    const fallback = createFallbackSphere(radius * scale, fruitConfig.color);
+    disableFrustumCulling(fallback);
+    return fallback;
 }
 
 /**

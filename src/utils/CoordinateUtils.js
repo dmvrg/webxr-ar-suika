@@ -1,6 +1,18 @@
 import * as THREE from 'three';
 
 /**
+ * Disable frustum culling on an object and all its descendants.
+ * Prevents objects from being hidden when outside the camera FOV — important
+ * for video recording where the capture camera differs from the XR view.
+ * @param {THREE.Object3D} object
+ */
+export function disableFrustumCulling(object) {
+    object.traverse(child => {
+        child.frustumCulled = false;
+    });
+}
+
+/**
  * Convert world coordinates to container local coordinates
  * @param {THREE.Vector3} worldPosition - Position in world space
  * @param {THREE.Object3D} containerModel - Container mesh reference
