@@ -1,5 +1,5 @@
 // ========================================
-// SUIKA GAME - FRUIT CONFIGURATION
+// FRUIT CONFIGURATION
 // ========================================
 export const FRUITS = [
     {
